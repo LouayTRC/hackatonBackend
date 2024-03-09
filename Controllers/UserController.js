@@ -20,3 +20,24 @@ exports.createUser=(userData)=>{
         return user;
     })
 }
+
+exports.getUsers=(req,res,next)=>{
+    User.find()
+    .then(
+        (users)=>{
+           res.status(200).send(users);
+        }
+    )
+    .catch(
+        (err)=>{
+            res.status(400).send(err);
+        }
+    )
+}
+
+exports.addDiscussion=async (usersId)=>{
+    for (let i = 0; i < usersId.length; i++) {
+        await User.find
+        
+    }
+}

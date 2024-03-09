@@ -10,10 +10,16 @@ const userSchema=mongoose.Schema({
     reseauxSociaux: [{
         plateforme: { type: String },
         lien: { type: String }
-    }], 
+    }],
+    discussions:[
+        { 
+            type: mongoose.Schema.Types.ObjectId, 
+            ref: 'Discussion' 
+        }
+    ],
     birthday: { type: String },
     phone:{type:String,required:true},
-    role:{type:String},
+    role:{type:String,required:true},
     pdp:{type:String}
 },{ versionKey: false,timestamps: true});
 

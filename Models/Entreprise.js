@@ -31,8 +31,6 @@ const entrepriseSchema = new Schema({
     //     type: Schema.Types.ObjectId, 
     //     ref: 'User'
     // }]
-},{ timestamps: true });
+},{versionKey:false,timestamps: true});
 
-const Entreprise = mongoose.model('Entreprise', entrepriseSchema);
-
-module.exports = Entreprise;
+module.exports = mongoose.model('Entreprise', entrepriseSchema);

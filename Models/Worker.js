@@ -10,6 +10,12 @@ const workerSchema = mongoose.Schema({
     technology: { type: String },
     level: { type: String }
   }],
+  experience:[{
+    poste:{type:String},
+    startDate:{type:String},
+    endDate:{type:String},
+    description:{type:String}
+  }]
 }, { versionKey: false,timestamps: true });
 
 module.exports = mongoose.model('Worker', workerSchema);

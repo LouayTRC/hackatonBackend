@@ -1,8 +1,8 @@
 const userCtrl=require('../Controllers/UserController');
-
+const User=require('../Models/User')
 const jwt=require('jsonwebtoken');
 const bcrypt=require('bcrypt');
-const Entreprise = require('../Models/Entreprise');
+const Entreprise=require('../Models/Entreprise');
 const Worker = require('../Models/Worker');
 const Admin = require('../Models/Admin');
 
@@ -49,26 +49,17 @@ exports.signup = async (req, res, next) => {
             statutJuridique:req.body.statutJuridique,
             pays:req.body.pays,
         })
-        Entreprise.save()
+        entreprise.save()
         .then((etp)=>res.status(201).send(etp))
         .catch(error=>res.status(400).send(error))
     } 
-    else if (user.role=="Worker") {
+    else {
         const worker=new Worker({
             user,
             skills:req.body.skills
         })
-        Worker.save()
-        .then((worker)=>res.status(201).send(worker))
-        .catch(error=>res.status(400).send(error))
-    }
-    else {
-        const admin=new Admin({
-            user,
-            skills:req.body.skills
-        })
-        Admin.save()
-        .then((admin)=>res.status(201).send(admin))
+        worker.save()
+        .then((workerr)=>res.status(201).send(workerr))
         .catch(error=>res.status(400).send(error))
     }
 }
