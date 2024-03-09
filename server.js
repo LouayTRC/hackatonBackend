@@ -1,16 +1,7 @@
-const express= require('express');
+const http=require('http');
+const app=require('./app');
 
+app.set('port',3000);
+const server=http.createServer(app);
 
-
-const cors = require('cors')
-const app=express();
-
-
-
-app.use(express.json());
-app.use(cors());
-
-
-app.listen( 3000 , ()=>{
-    console.log('server work!')
-});
+server.listen(3000);
